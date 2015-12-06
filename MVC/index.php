@@ -6,10 +6,10 @@
  */
 
 //相对主路径
-define('ROOT','./');
+define('ROOT',str_replace('\\','/',__DIR__) . '/');
 
 //应用路口
-define('APP_PATH',ROOT . 'Applicatioin/');
+define('APP_PATH',ROOT . 'Application/');
 
 //扩展类文件夹
 define('COMPONENT_PATH',APP_PATH . 'Component/');

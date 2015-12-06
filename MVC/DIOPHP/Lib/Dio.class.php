@@ -16,6 +16,9 @@ class Dio{
         include(CONF_PATH . 'config.php');
         //加载常用函数
         include(COMMON_PATH . 'function.php');
+
+        //执行
+        App::run();
     }
 
     /**
@@ -32,6 +35,10 @@ class Dio{
             //检查应用模块下的扩展文件类 Applicatioin下的Componnet文件夹下
             include($filePath);
         }elseif($filePath = findFile(EXTEND_PATH,$className . EXT)){
+            include($filePath);
+        }elseif($filePath = findFile(LIB_PATH,$className . EXT)){
+            include($filePath);
+        }elseif($filePath = findFile(APP_PATH . 'Home/Controller',$className . EXT)){var_dump(1);
             include($filePath);
         }
         return true;

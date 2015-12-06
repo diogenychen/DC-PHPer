@@ -11,7 +11,7 @@
 define('EXT','.class.php');
 
 //框架相对路径
-defined('DIO_PATH')     or define('DIO_PATH'   , __DIR__  . '/');
+defined('DIO_PATH')     or define('DIO_PATH'   , str_replace("\\","/",__DIR__)  . '/');
 defined('LIB_PATH')     or define('LIB_PATH'   , DIO_PATH . 'Lib/');
 defined('COMMON_PATH')  or define('COMMON_PATH', DIO_PATH . 'Common/');
 defined('CONF_PATH')    or define('CONF_PATH'  , DIO_PATH . 'Conf/');

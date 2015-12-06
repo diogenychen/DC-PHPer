@@ -5,5 +5,10 @@
  * 应用程序类，执行应用过程管理
  */
 class App{
-    //TODO
+
+    static public function run(){
+        var_dump('Appclass');
+        //URL调度器
+        Dispatcher::dispatch();
+    }
 }
