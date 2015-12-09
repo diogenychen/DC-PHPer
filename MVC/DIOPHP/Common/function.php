@@ -12,8 +12,26 @@
  * @param mixed $val
  * @return mixed
  */
-function getC($key,$val){
-    //TODO
+function getC($key = '',$val = null){
+    static $_config = array();
+    //不传值时返回全部
+    if(empty($key)){
+        return $_config;
+    }
+    //$val为空
+    if(empty($val)){
+        $_config[$key] = $val;
+    }else{
+        //$val不为空
+        //$key是含有分隔符
+        if(strpos($key,'.')){
+            list($level1,$level2) = explode('.',$key);
+            return empty($_config[$level1][$level2]) ? '' : $_config[$level1][$level2];
+        }
+        //$key是纯字符串
+        return empty($_config[$key]) ? '' : $_config[$key];
+    }
+    return true;
 }
 
 /**

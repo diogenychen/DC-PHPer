@@ -2,10 +2,10 @@
 /**
  * @Author: DiogenyChen
  * @CreateTime: 2015-12-09
- * 视图类
+ * 控制器基类 包含对视图的操作
  */
 require('smarty/libs/Smarty.class.php');
-class View extends Smarty{
+class Controller extends Smarty{
 
     /**
      * Smarty实例化对象
@@ -19,16 +19,10 @@ class View extends Smarty{
     public function __construct(){
         $this->smarty = new Smarty();
         //模板界定符定义
-        $this->smarty->left_delimiter = getC('LEFT_DELIMITER');
+        $this->smarty->left_delimiter  = getC('LEFT_DELIMITER');
         $this->smarty->right_delimiter = getC('RIGHT_DELIMITER');
-    }
-
-    /**
-     * 模板目录设置
-     * @param string $dir
-     */
-    public function setTemplate($dir){
-        $this->smarty->template_dir = $dir;
+        //模板目录
+        $this->smarty->template_dir    = APP_PATH . MODULE_NAME . '/' . APP_TPL_DIRNAME . '/';
     }
 
     /**
@@ -43,10 +37,7 @@ class View extends Smarty{
     /**
      * 模板输出
      */
-    public function display($template){
+    public function display($template = ''){
         $this->smarty->display($template);
     }
-
-
-
 }

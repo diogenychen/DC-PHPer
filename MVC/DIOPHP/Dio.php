@@ -16,6 +16,10 @@ defined('LIB_PATH')     or define('LIB_PATH'   , DIO_PATH . 'Lib/');
 defined('COMMON_PATH')  or define('COMMON_PATH', DIO_PATH . 'Common/');
 defined('CONF_PATH')    or define('CONF_PATH'  , DIO_PATH . 'Conf/');
 defined('EXTEND_PATH')  or define('EXTEND_PATH', DIO_PATH . 'Extend/');
+defined('SMARTY_PATH')  or define('SMARTY_PATH', DIO_PATH . 'smarty/libs/');
+
+//应用模板常量
+defined('APP_TPL_DIRNAME') or define('APP_TPL_DIRNAME'   , 'Tpl');
 
 
 //引入执行文件
