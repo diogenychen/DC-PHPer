@@ -22,6 +22,10 @@ class Dio{
     }
 
     /**
+     *
+     */
+
+    /**
      * 自动加载函数
      */
     public static function autoload($className){
@@ -37,8 +41,6 @@ class Dio{
         }elseif($filePath = findFile(EXTEND_PATH,$className . EXT)){
             include($filePath);
         }elseif($filePath = findFile(LIB_PATH,$className . EXT)){
-            include($filePath);
-        }elseif($filePath = findFile(APP_PATH . 'Home/Controller',$className . EXT)){var_dump(1);
             include($filePath);
         }
         return true;

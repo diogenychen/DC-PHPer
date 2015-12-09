@@ -17,6 +17,13 @@ function getC($key,$val){
 }
 
 /**
+ * 加载文件
+ */
+function import(){
+    //
+}
+
+/**
  * 根据文件名在指定目录下查找 是否存在
  * @param string $dir
  * @param string $filename
