@@ -4,6 +4,7 @@
  * @CreateTime: 2015-12-09
  * 控制器基类 包含对视图的操作
  */
+defined('SMARTY_DIR')          or define('SMARTY_DIR'   , LIB_PATH . 'smarty/libs/');
 require('smarty/libs/Smarty.class.php');
 class Controller extends Smarty{
 
@@ -22,7 +23,14 @@ class Controller extends Smarty{
         $this->smarty->left_delimiter  = getC('LEFT_DELIMITER');
         $this->smarty->right_delimiter = getC('RIGHT_DELIMITER');
         //模板目录
-        $this->smarty->template_dir    = APP_PATH . MODULE_NAME . '/' . APP_TPL_DIRNAME . '/';
+        /*$this->smarty->template_dir = APP_PATH . MODULE_NAME . '/' . APP_TPL_DIRNAME . '/';
+        $this->smarty->compile_dir  = APP_PATH . MODULE_NAME . '/' . APP_RUNTIME_DIRNAME . '/templates_c/';
+        $this->smarty->config_dir   = APP_PATH . MODULE_NAME . '/' . APP_RUNTIME_DIRNAME . '/configs/';
+        $this->smarty->cache_dir    = APP_PATH . MODULE_NAME . '/' . APP_RUNTIME_DIRNAME . '/cache/';*/
+        $this->smarty->template_dir = ROOT . 'Smarty/templates/';
+        $this->smarty->compile_dir  = ROOT . 'Smarty/templates_c/';
+        $this->smarty->config_dir   = ROOT . 'Smarty/configs/';
+        $this->smarty->cache_dir    = ROOT . 'Smarty/cache/';
     }
 
     /**
@@ -30,14 +38,36 @@ class Controller extends Smarty{
      * @param string $key
      * @param mixed $value
      */
-    public function assign($key,$value){
-        $this->smarty->assign($key,$value);
+    public function assign($tpl_var, $value = NULL, $nocache = false){
+        $this->smarty->assign($tpl_var,$value);
     }
 
     /**
      * 模板输出
      */
-    public function display($template = ''){
+    public function display($template = NULL, $cache_id = NULL, $compile_id = NULL, $parent = NULL){
         $this->smarty->display($template);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

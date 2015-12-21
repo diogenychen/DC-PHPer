@@ -34,7 +34,7 @@
  * define shorthand directory separator constant
  */
 if (!defined('DS')) {
-    define('DS', DIRECTORY_SEPARATOR);
+    define('DS', '/');
 }
 
 /**

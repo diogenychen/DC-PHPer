@@ -12,10 +12,10 @@ class Dio{
     static public function init(){
         //注册自动加载函数
         spl_autoload_register('Dio::autoload');
-        //加载配置文件
-        include(CONF_PATH . 'config.php');
         //加载常用函数
         include(COMMON_PATH . 'function.php');
+        //加载配置文件
+        getC(include(CONF_PATH . 'config.php'));
 
         //执行
         App::run();

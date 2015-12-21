@@ -10,7 +10,13 @@
  */
 return array(
     //模板信息配置
-    'LEFT_DELIMITER' => '{',
+    'LEFT_DELIMITER'  => '{',
     'RIGTH_DELIMITER' => '}',
-    ''
+
+    //默认模块配置
+    'DEFAULT_MODULE'  => 'Home',
+    'VAR_MODULE'      => 'm',
+    'VAR_CONTROLLER'  => 'c',
+    'VAR_ACTION'      => 'a',
+
 );

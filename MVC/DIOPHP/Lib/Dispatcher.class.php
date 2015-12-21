@@ -18,6 +18,7 @@ class Dispatcher{
         defined('CONTROLLER_NAME') or define('CONTROLLER_NAME',$module);
         defined('ACTION_NAME')     or define('ACTION_NAME',$module);
 
+        import('@.Controller.' . $controller);
         $handler    = new $controller();
         $handler->$action();
     }

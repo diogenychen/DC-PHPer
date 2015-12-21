@@ -19,26 +19,57 @@ function getC($key = '',$val = null){
         return $_config;
     }
     //$val为空
-    if(empty($val)){
+    if(!empty($val)){
         $_config[$key] = $val;
     }else{
         //$val不为空
-        //$key是含有分隔符
-        if(strpos($key,'.')){
-            list($level1,$level2) = explode('.',$key);
-            return empty($_config[$level1][$level2]) ? '' : $_config[$level1][$level2];
+        if(is_array($key)){
+            //传入数组  则视为定义配置常量  后面定义的会覆盖前面定义的常量
+            $_config = array_merge($_config,$key);
+        }else{
+            //$key是含有分隔符
+            if(strpos($key,'.')){
+                list($level1,$level2) = explode('.',$key);
+                return empty($_config[$level1][$level2]) ? '' : $_config[$level1][$level2];
+            }
+            //$key是纯字符串
+            return empty($_config[$key]) ? '' : $_config[$key];
         }
-        //$key是纯字符串
-        return empty($_config[$key]) ? '' : $_config[$key];
     }
     return true;
 }
 
 /**
  * 加载文件
+ * @param string $path
+ * @return boolean
  */
-function import(){
-    //
+function import($path){
+    $path = trim($path);
+    if(empty($path)){
+        return false;
+    }
+    if(is_file($path)){
+        include_once($path);
+        return true;
+    }
+    $first = substr($path,0,1);
+    $str = '';
+    //'*'代表加载框架文件
+    if($first == '*'){
+        $str = substr(DIO_PATH,0,-1);
+    }
+    //'@'代表加载应用文件
+    if($first == '@'){
+        $str = APP_PATH . getC('DEFAULT_MODULE');
+    }
+    $path  = str_replace('.','/',str_replace($first,$str,$path));
+    $path .= EXT;var_dump($path);
+    if(is_file($path)){
+        include_once($path);
+        return true;
+    }var_dump(1);
+    return false;
 }
 
 /**

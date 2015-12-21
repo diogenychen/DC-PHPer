@@ -19,7 +19,8 @@ defined('EXTEND_PATH')  or define('EXTEND_PATH', DIO_PATH . 'Extend/');
 defined('SMARTY_PATH')  or define('SMARTY_PATH', DIO_PATH . 'smarty/libs/');
 
 //应用模板常量
-defined('APP_TPL_DIRNAME') or define('APP_TPL_DIRNAME'   , 'Tpl');
+defined('APP_TPL_DIRNAME')     or define('APP_TPL_DIRNAME'   , 'Tpl');
+defined('APP_RUNTIME_DIRNAME') or define('APP_RUNTIME_DIRNAME'   , 'Runtime');
 
 
 //引入执行文件
