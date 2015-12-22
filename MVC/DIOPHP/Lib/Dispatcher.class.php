@@ -21,5 +21,8 @@ class Dispatcher{
         import('@.Controller.' . $controller);
         $handler    = new $controller();
         $handler->$action();
+
+
+
     }
 }
