@@ -5,7 +5,8 @@
  * 控制器基类 包含对视图的操作
  */
 defined('SMARTY_DIR')          or define('SMARTY_DIR'   , LIB_PATH . 'smarty/libs/');
-require('smarty/libs/Smarty.class.php');
+require(SMARTY_DIR. 'Smarty.class.php');
+
 class Controller extends Smarty{
 
     /**
@@ -23,14 +24,10 @@ class Controller extends Smarty{
         $this->smarty->left_delimiter  = getC('LEFT_DELIMITER');
         $this->smarty->right_delimiter = getC('RIGHT_DELIMITER');
         //模板目录
-        /*$this->smarty->template_dir = APP_PATH . MODULE_NAME . '/' . APP_TPL_DIRNAME . '/';
-        $this->smarty->compile_dir  = APP_PATH . MODULE_NAME . '/' . APP_RUNTIME_DIRNAME . '/templates_c/';
-        $this->smarty->config_dir   = APP_PATH . MODULE_NAME . '/' . APP_RUNTIME_DIRNAME . '/configs/';
-        $this->smarty->cache_dir    = APP_PATH . MODULE_NAME . '/' . APP_RUNTIME_DIRNAME . '/cache/';*/
-        $this->smarty->template_dir = ROOT . 'Smarty/templates/';
-        $this->smarty->compile_dir  = ROOT . 'Smarty/templates_c/';
-        $this->smarty->config_dir   = ROOT . 'Smarty/configs/';
-        $this->smarty->cache_dir    = ROOT . 'Smarty/cache/';
+        $this->smarty->setTemplateDir(APP_PATH . MODULE_NAME . '/' . APP_TPL_DIRNAME . '/');
+        //$this->smarty->setCacheDir(APP_PATH . MODULE_NAME . '/' . APP_RUNTIME_DIRNAME . '/cache/');
+        //$this->smarty->setCompileDir(APP_PATH . MODULE_NAME . '/' . APP_RUNTIME_DIRNAME . '/templates_c/');
+        //$this->smarty->setConfigDir(APP_PATH . MODULE_NAME . '/' . APP_RUNTIME_DIRNAME . '/configs/');
     }
 
     /**

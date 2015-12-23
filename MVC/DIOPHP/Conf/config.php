@@ -10,8 +10,9 @@
  */
 return array(
     //模板信息配置
-    'LEFT_DELIMITER'  => '{',
-    'RIGTH_DELIMITER' => '}',
+    'LEFT_DELIMITER'     => '{',
+    'RIGHT_DELIMITER'    => '}',
+    'TEMPLATES_CACHE_ON' => false,
 
     //默认模块配置
     'DEFAULT_MODULE'  => 'Home',
