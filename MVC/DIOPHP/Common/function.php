@@ -68,7 +68,7 @@ function import($path){
     if(is_file($path)){
         include_once($path);
         return true;
-    }var_dump(1);
+    }
     return false;
 }
 
